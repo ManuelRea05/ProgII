@@ -76,10 +76,21 @@ public class Electrodomestico {
         }
     }
 
-    public void precioFinal(){
-        
+    public void precioFinal() {
+        if (consumoEnerg == 'A') {
+            precioBase = 100;
+        } else if (consumoEnerg == 'B') {
+            precioBase = 80;
+        } else if (consumoEnerg == 'C') {
+            precioBase = 60;
+        } else if (consumoEnerg == 'D') {
+            precioBase = 50;
+        } else if (consumoEnerg == 'B') {
+            precioBase = 30;
+        } else if (consumoEnerg == 'F') {
+            precioBase = 10;
+        }
     }
-
-
+    
 }
 
