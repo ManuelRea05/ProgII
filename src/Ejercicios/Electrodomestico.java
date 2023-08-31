@@ -2,10 +2,10 @@ package Ejercicios;
 import java.util.ArrayList;
 
 public class Electrodomestico {
-    private int precioBase;
-    private String color;
-    private char consumoEnerg;
-    private int peso;
+    protected int precioBase;
+    protected String color;
+    protected char consumoEnerg;
+    protected int peso;
 
     private static final char CONSUMO_DEFECT = 'F';
 
@@ -26,7 +26,7 @@ public class Electrodomestico {
     public Electrodomestico(int precioBase, String color, char consumoEnerg, int peso) {
         this.precioBase = precioBase;
         this.color = color;
-        this.consumoEnerg = consumoEnerg;
+        this.comprobarConsumoEnergetico(consumoEnerg);
         this.peso = peso;
     }
 
@@ -75,22 +75,48 @@ public class Electrodomestico {
             this.color = "blanco";
         }
     }
+    public double precioFinal() {
+        double precioFinal = this.precioConsumo();
+        precioFinal += this.precioTamaño;
+        return precioFinal;
+        
+    }
 
-    public void precioFinal() {
-        if (consumoEnerg == 'A') {
-            precioBase = 100;
-        } else if (consumoEnerg == 'B') {
-            precioBase = 80;
-        } else if (consumoEnerg == 'C') {
-            precioBase = 60;
-        } else if (consumoEnerg == 'D') {
-            precioBase = 50;
-        } else if (consumoEnerg == 'B') {
-            precioBase = 30;
-        } else if (consumoEnerg == 'F') {
-            precioBase = 10;
+    private double precioTamaño(){
+        if (this.peso <= 19){
+            return 10;
+        }
+        else {
+            return 50;
         }
     }
+
+    public double precioConsumo() {
+        double precio = 0;
+        switch (this.consumoEnerg) {
+            case 'A':
+                precio= 100;
+                break;
+            case 'B':
+                precio=80;
+                break;
+            case 'C':
+                precio= 60;
+                break;
+            case 'D':
+                precio= 50;
+                break;
+            case 'E':
+                precio= 30;
+                break;
+            case 'F':
+                precio= 10;
+                break;
+        }
+        return precio;
+    }
+
+    // sobreescribir metodo precio final
     
 }
 
