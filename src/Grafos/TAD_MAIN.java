@@ -10,7 +10,7 @@ public class TAD_MAIN {
 
         grafo2.conectar("A", "B", 10);
         grafo2.conectar("B", "C", 15);
-
+        grafo2.imprimir();
     }
 
 }

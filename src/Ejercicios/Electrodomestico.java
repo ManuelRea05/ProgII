@@ -77,7 +77,7 @@ public class Electrodomestico {
     }
     public double precioFinal() {
         double precioFinal = this.precioConsumo();
-        precioFinal += this.precioTamaño;
+       // precioFinal += this.precioTamaño;
         return precioFinal;
         
     }
